@@ -14,167 +14,170 @@ const newsdetails=document.getElementById("newsdetails");
 var newsdata=[];
 
 generalBtn.addEventListener("click",function(){
-    fetchgeneralnews();
+    const fetchgeneralnews=async()=>{
+        const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=news",
+        {
+            method: "GET",
+            headers: {
+                "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
+            },
+        });
+        newsdata=[];
+        if(response.status>=200 && response.status<300){
+               const a=await response.json();
+               console.log(a);
+               newsdata=a.articles;
+    
+        }else{
+            console.log(response.status,response.statustext);
+        }
+    
+        displaynews();
+    
+    }
+    fetchgeneralnews()
 
 });
 financeBtn.addEventListener("click",function(){
+    const fetchfinancenews=async()=>{
+        const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=finance",
+        {
+            method: "GET",
+            headers: {
+                "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
+            },
+        });
+        newsdata=[];
+        if(response.status>=200 && response.status<300){
+               const a=await response.json();
+               newsdata=a.articles;
+        }else{
+            console.log(response.status,response.statustext);
+        }
+    
+        displaynews();
+    
+    }
     fetchfinancenews()
 });
 buisnessBtn.addEventListener("click",function(){
+    
+    const fetchbusinessnews=async()=>{
+        const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=business",
+        {
+            method: "GET",
+            headers: {
+                "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
+            },
+        });
+        newsdata=[];
+        if(response.status>=200 && response.status<300){
+               const a=await response.json();
+               newsdata=a.articles;
+        }else{
+            console.log(response.status,response.statustext);
+        }
+    
+        displaynews();
+    
+    }
     fetchbusinessnews()
 });
 entertainmentBtn.addEventListener("click",function(){
+    
+    const fetchentertainmentnews=async()=>{
+        const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=entertainment",
+        {
+            method: "GET",
+            headers: {
+                "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
+            },
+        });
+        newsdata=[];
+        if(response.status>=200 && response.status<300){
+               const a=await response.json();
+               newsdata=a.articles;
+        }else{
+            console.log(response.status,response.statustext);
+        }
+    
+        displaynews();
+    
+    }
     fetchentertainmentnews()
 });
 gamingBtn.addEventListener("click",function(){
+    
+    const fetchgamingnews=async()=>{
+        const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=gaming",
+        {
+            method: "GET",
+            headers: {
+                "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
+            },
+        });
+        newsdata=[];
+        if(response.status>=200 && response.status<300){
+               const a=await response.json();
+               newsdata=a.articles;
+        }else{
+            console.log(response.status,response.statustext);
+        }
+    
+        displaynews();
+    
+    }
     fetchgamingnews()
 });
 sportsBtn.addEventListener("click",function(){
+    
+    const fetchsportsnews=async()=>{
+        const response=await fetch( "https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=sport",
+        {
+            method: "GET",
+            headers: {
+                "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
+            },
+        });
+        newsdata=[];
+        if(response.status>=200 && response.status<300){
+               const a=await response.json();
+               newsdata=a.articles;
+        }else{
+            console.log(response.status,response.statustext);
+        }
+    
+        displaynews();
+    
+    }
     fetchsportsnews()
 });
 technologyBtn.addEventListener("click",function(){
+    
+    const fetchtechnologynews=async()=>{
+        const response=await fetch(
+            "https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=tech",
+            {
+                method: "GET",
+                headers: {
+                    "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
+                },
+            }
+        )
+        newsdata=[];
+        if(response.status>=200 && response.status<300){
+               const a=await response.json();
+               newsdata=a.articles;
+        }else{
+            console.log(response.status,response.statustext);
+        }
+    
+        displaynews();
+    
+    }
     fetchtechnologynews()
 });
 
-
-const fetchgeneralnews=async()=>{
-    const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=news",
-    {
-        method: "GET",
-        headers: {
-            "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
-        },
-    });
-    newsdata=[];
-    if(response.status>=200 && response.status<300){
-           const a=await response.json();
-           console.log(a);
-           newsdata=a.articles;
-
-    }else{
-        console.log(response.status,response.statustext);
-    }
-
-    displaynews();
-
-}
-const fetchbusinessnews=async()=>{
-    const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=business",
-    {
-        method: "GET",
-        headers: {
-            "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
-        },
-    });
-    newsdata=[];
-    if(response.status>=200 && response.status<300){
-           const a=await response.json();
-           newsdata=a.articles;
-    }else{
-        console.log(response.status,response.statustext);
-    }
-
-    displaynews();
-
-}
-
-const fetchsportsnews=async()=>{
-    const response=await fetch( "https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=sport",
-    {
-        method: "GET",
-        headers: {
-            "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
-        },
-    });
-    newsdata=[];
-    if(response.status>=200 && response.status<300){
-           const a=await response.json();
-           newsdata=a.articles;
-    }else{
-        console.log(response.status,response.statustext);
-    }
-
-    displaynews();
-
-}
-const fetchfinancenews=async()=>{
-    const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=finance",
-    {
-        method: "GET",
-        headers: {
-            "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
-        },
-    });
-    newsdata=[];
-    if(response.status>=200 && response.status<300){
-           const a=await response.json();
-           newsdata=a.articles;
-    }else{
-        console.log(response.status,response.statustext);
-    }
-
-    displaynews();
-
-}
-const fetchgamingnews=async()=>{
-    const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=gaming",
-    {
-        method: "GET",
-        headers: {
-            "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
-        },
-    });
-    newsdata=[];
-    if(response.status>=200 && response.status<300){
-           const a=await response.json();
-           newsdata=a.articles;
-    }else{
-        console.log(response.status,response.statustext);
-    }
-
-    displaynews();
-
-}
-const fetchtechnologynews=async()=>{
-    const response=await fetch(
-		"https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=tech",
-		{
-			method: "GET",
-			headers: {
-				"x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
-			},
-		}
-	)
-    newsdata=[];
-    if(response.status>=200 && response.status<300){
-           const a=await response.json();
-           newsdata=a.articles;
-    }else{
-        console.log(response.status,response.statustext);
-    }
-
-    displaynews();
-
-}
-const fetchentertainmentnews=async()=>{
-    const response=await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic=entertainment",
-    {
-        method: "GET",
-        headers: {
-            "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
-        },
-    });
-    newsdata=[];
-    if(response.status>=200 && response.status<300){
-           const a=await response.json();
-           newsdata=a.articles;
-    }else{
-        console.log(response.status,response.statustext);
-    }
-
-    displaynews();
-
-}
 
 
 function displaynews(){
@@ -229,21 +232,8 @@ function displaynews(){
         col.appendChild(card);
 
         newsdetails.appendChild(col);
-
-
-
-    
-
-
-
-        
-
-
-    })
+})
 }
-
-
-
 if ("serviceWorker" in navigator ){
     navigator.serviceWorker.register("./sw.js").then(registration =>{
         console.log("service worker registered!");
