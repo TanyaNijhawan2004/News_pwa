@@ -1,0 +1,29 @@
+.navbar-brand{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.header{
+    text-align: center;
+    margin-top: 3rem;
+}
+.btn-sign{
+    margin-top: 4rem;
+}
+.col {
+    float: left;
+    border-color: black;
+    margin-top: 3rem;
+    
+  }
+.img{
+    margin-top:0.5rem;
+    margin-bottom: 0.5rem;
+}
+#newsdeatils{
+    align-content: center;
+}
+.card{
+    margin-left:1rem;
+    margin-right: 1rem;
+}
+
