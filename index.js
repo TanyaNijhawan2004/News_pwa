@@ -7,7 +7,7 @@ const sportsBtn=document.getElementById("sports");
 const technologyBtn=document.getElementById("technology");
 const searchBtn = document.getElementById("searchBtn");
 
-const newsQuery = document.getElementById("newsQuery");
+const newssearch = document.getElementById("newssearch");
 const newstype=document.getElementById("newstype");
 const newsdetails=document.getElementById("newsdetails");
 
@@ -177,7 +177,35 @@ technologyBtn.addEventListener("click",function(){
     }
     fetchtechnologynews()
 });
+searchBtn.addEventListener("click",function(){
 
+    fetchnewssearch();
+});
+const fetchnewssearch = async () => {
+
+    if(newssearch.value== null)
+        return;
+
+    const response = await fetch("https://api.newscatcherapi.com/v2/latest_headlines?&lang=en&topic="+newssearch.value,
+    {
+        method: "GET",
+        headers: {
+            "x-api-key": "5nNsWHQn7UhZ7lFc-Fl2-0_WqoccT73QCNAAww60ah8",
+        },
+    });
+    newsdata=[];
+    if(response.status >= 200 && response.status < 300) {
+        const a= await response.json();
+        newsdata = a.articles;
+    } else {
+        //error handle
+        console.log(response.status, response.statusText);
+        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        return;
+    }
+
+    displayNews();
+}
 
 
 function displaynews(){
@@ -192,7 +220,7 @@ function displaynews(){
         col.className="col col-lg-4 col-sm-12 col-md-6 col-11 ";
 
         var card=document.createElement("div");
-        card.className=" p-2 card";
+        card.className=" card h-100 p-2 card";
 
         var image = document.createElement('img');
         image.className="img";
@@ -232,8 +260,21 @@ function displaynews(){
         col.appendChild(card);
 
         newsdetails.appendChild(col);
-})
+
+
+
+    
+
+
+
+        
+
+
+    })
 }
+
+
+
 if ("serviceWorker" in navigator ){
     navigator.serviceWorker.register("./sw.js").then(registration =>{
         console.log("service worker registered!");
